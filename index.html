@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <p>nanomsg ws test:&nbsp;<span></span></p>
+    <input id=test type='text'>
+    <button onclick="ws.send(test.value)" >send</button>
+    <script>
+      var ws = new WebSocket('ws://127.0.0.1:8080');
+      ws.onerror = function error(err) { console.log(err); }
+
+      ws.onopen = function open() {
+      }//do something
+      ws.onmessage = function message(e) {
+        document.querySelector('span').textContent = e.data
+      }
+
+    </script>
+  </body>
+</html>
